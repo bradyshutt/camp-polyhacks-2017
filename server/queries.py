@@ -14,6 +14,6 @@ class Database:
 
    def UserInfo(self, email):
       query = "SELECT * FROM Users WHERE email = %s;"
-      self.cur.execute(query, (email))
+      self.cur.execute(query, (email,))
       res = self.cur.fetchall()
       return jsonify(res)
