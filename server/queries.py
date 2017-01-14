@@ -84,7 +84,8 @@ class Database:
       self.cur.execute("START TRANSACTION;")
       query = "INSERT INTO Users VALUES (NULL, %s, %s, %s, %s, NULL, NULL, NULL);"
       self.cur.execute(query, (email, fname, lname, password,))
-      return "Success"
+      self.cur.execute("COMMIT;")
+      return "Success"l
 
    def NewRequest(self, riderEmail, driverEmail, fromAddress, toAddress):
       query = "SELECT id FROM Users WHERE email = %s;"
