@@ -83,17 +83,18 @@ class Database:
       # User does not yet exist
       query = "INSERT INTO Users VALUES (NULL, %s, %s, %s, %s);"
       self.cur.execute(query, (email, fname, lname, password,))
+      return "Success"
 
-   def NewRequest(self, riderEmail, driverEmail, fromAddress, toAddress):
-      # riderId and driverId are ints?
-      riderQuery = "SELECT id FROM Users WHERE email = %s;"
-      self.cur.execute(query, (riderEmail,))
-      riderId = self.cur.fetchall()[0][0]
-      self.cur.execute(query, (driverEmail,))
-      driverId = self.cur.fetchall()[0][0]
-      query = "INSERT INTO RideRequests VALUES (NULL, %s, %s, NOW(), %s, %s, %s);"
-      self.cur.execute(query, (riderId, driverId, fromAddress, toAddress,))
+   # def NewRequest(self, riderEmail, driverEmail, fromAddress, toAddress):
+   #    # riderId and driverId are ints?
+   #    riderQuery = "SELECT id FROM Users WHERE email = %s;"
+   #    self.cur.execute(query, (riderEmail,))
+   #    riderId = self.cur.fetchall()[0][0]
+   #    self.cur.execute(query, (driverEmail,))
+   #    driverId = self.cur.fetchall()[0][0]
+   #    query = "INSERT INTO RideRequests VALUES (NULL, %s, %s, NOW(), %s, %s, %s);"
+   #    self.cur.execute(query, (riderId, driverId, fromAddress, toAddress,))
 
-   def UpdatePrice(self, newPrice, requestNum):
-      query = "UPDATE RideRequests SET price = %s WHERE rideId = %s;"
-      self.cur.execute(query, (newPrice, requestNum,))
+   # def UpdatePrice(self, newPrice, requestNum):
+   #    query = "UPDATE RideRequests SET price = %s WHERE rideId = %s;"
+   #    self.cur.execute(query, (newPrice, requestNum,))
