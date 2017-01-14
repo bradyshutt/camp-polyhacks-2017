@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 
       <main>
         <app-header (sidenavChange)="sidenav.open()" ></app-header>
-        
+        <router-outlet></router-outlet>
       </main>
 
     </md-sidenav-container>
@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
   styles: [`
         
         main {
-            background-color: green;
+            background-color: #f2f2f2;
             height: 100%;
         }
         md-sidenav-container {
