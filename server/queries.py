@@ -29,10 +29,33 @@ class Database:
       #return resDict
       return jsonify(resDict)
 
-   # def RideRequestsFromEmail(self, email):
-      # query = "SELECT * FROM Users JOIN RideRequests ON Users.id = RideRequests.riderId WHERE email = %s;"
-      # self.cur.execute(query, (email,))
-      # res = self.cur.fetchall()
-      # resDict = {
-      #    ''
-      # }
+   def RideRequestsFromEmail(self, email):
+      query = """SELECT 
+              Riders.fName, 
+              Riders.lName, 
+              RD.fName,
+              RD.lName,
+              requestTime,
+              fromAddress,
+              toAddress,
+              price,
+              complete
+               FROM Users Riders JOIN 
+                (SELECT * 
+                   FROM Users Drivers JOIN 
+                      RideRequests R 
+                      ON R.driverId = Drivers.id) RD 
+                   ON Riders.id = RD.riderId WHERE Riders.email = %s;"""
+      self.cur.execute(query, (email,))
+      res = self.cur.fetchall()
+      resDict = {
+         'riderfName': res[0][0],
+         'riderlName': res[0][1],
+         'driverfName': res[0][2],
+         'driverlName': res[0][3],
+         'requestTime': res[0][4],
+         'fromAddress': res[0][5],
+         'toAddress': res[0][6],
+         'price': res[0][7],
+         'completed': res[0][8]
+      }
