@@ -16,6 +16,8 @@ class Database:
       query = "SELECT * FROM Users WHERE email = %s;"
       self.cur.execute(query, (email,))
       res = self.cur.fetchall()
+      if len(res) == 0:
+         return jsonify({'code':404,'message':'Username not found'})
       resDict = {
          'id': res[0][0], 
          'email': res[0][1],
@@ -59,3 +61,4 @@ class Database:
          'price': res[0][7],
          'completed': res[0][8]
       }
+      return jsonify(resDict)
