@@ -1,4 +1,4 @@
-from queries.py import *
+from queries import *
 
 db = Database()
 

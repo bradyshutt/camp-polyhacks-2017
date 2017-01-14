@@ -2,21 +2,23 @@ DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS RideRequests;
 
 CREATE TABLE Users (
-   id INTEGER PRIMARY KEY,
-   email VARCHAR(32),
-   password VARCHAR(32),
-   token VARCHAR(64),
-   picture VARCHAR(32),
-   role VARCHAR(8)
+   id INTEGER AUTO_INCREMENT PRIMARY KEY,
+   email VARCHAR(32) NOT NULL,
+   fname VARCHAR(32) NOT NULL,
+   lname VARCHAR(32) NOT NULL,
+   password VARCHAR(32) NOT NULL,
+   token VARCHAR(64) DEFAULT NULL,
+   picture VARCHAR(32) DEFAULT NULL,
+   role VARCHAR(8) DEFAULT NULL
 );
 
 CREATE TABLE RideRequests (
-   riderId INTEGER,
-   driverId INTEGER,
-   requestTime DATETIME,
-   fromAddress VARCHAR(64),
-   toAddress VARCHAR(64),
-   price INTEGER,              -- in cents
-   completed CHAR(1),          -- 'y' or 'n'
+   riderId INTEGER NOT NULL,
+   driverId INTEGER NOT NULL,
+   requestTime DATETIME NOT NULL,
+   fromAddress VARCHAR(64) DEFAULT NULL,
+   toAddress VARCHAR(64) DEFAULT NULL,
+   price INTEGER DEFAULT 1000,              -- in cents
+   completed CHAR(1) DEFAULT 'n',          -- 'y' or 'n'
    PRIMARY KEY(riderId, driverId)
 );
