@@ -12,7 +12,6 @@ import { Component } from '@angular/core';
       <main>
         <app-header (sidenavChange)="sidenav.open()" ></app-header>
         
-        
       </main>
 
     </md-sidenav-container>
@@ -25,6 +24,9 @@ import { Component } from '@angular/core';
         }
         md-sidenav-container {
             height: 100%;
+        }
+        md-sidenav {
+            width: 80%;
         }
     
     `]
