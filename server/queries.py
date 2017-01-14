@@ -37,7 +37,6 @@ class Database:
       if len(res) == 0:
          return False
       return True
-      #return resDict
       return jsonify(resDict)
 
    def RideRequestsFromEmail(self, email):
@@ -50,7 +49,7 @@ class Database:
               fromAddress,
               toAddress,
               price,
-              complete
+              completed
                FROM Users Riders JOIN 
                 (SELECT * 
                    FROM Users Drivers JOIN 
@@ -59,6 +58,8 @@ class Database:
                    ON Riders.id = RD.riderId WHERE Riders.email = %s;"""
       self.cur.execute(query, (email,))
       res = self.cur.fetchall()
+      if len(res) == 0:
+         return jsonify({'code':404,'message':'No requests found'})
       resDict = {
          'riderfName': res[0][0],
          'riderlName': res[0][1],
