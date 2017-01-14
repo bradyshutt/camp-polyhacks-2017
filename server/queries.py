@@ -13,11 +13,10 @@ class Database:
       self.cur = self.db.cursor()
 
    def UserInfo(self, email):
-      resDict = {}
       query = "SELECT * FROM Users WHERE email = %s;"
       self.cur.execute(query, (email,))
       res = self.cur.fetchall()
-      resDict{
+      resDict = {
          'id': res[0], 
          'email': res[1], 
          'password': res[2],
