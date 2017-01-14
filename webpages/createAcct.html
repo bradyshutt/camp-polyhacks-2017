@@ -2,6 +2,9 @@
 <html>
 <style>
 
+.space { margin-top: 50px;}
+.secondspace {margin-top: 200px;}
+.grayspace {margin-top: 200px;}
 .button {
     background-color: #E04C5B;
     border: none;
@@ -16,8 +19,8 @@
   }
 
 img {
-  width: 15%;
-  height: 15%;
+  width: 60%;
+  height: 60%;
 }
 p.sans {
   font-family: 'PT Sans', sans-serif;
@@ -25,12 +28,13 @@ p.sans {
 
 input[type=text], select {
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px 20px 20px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 input[type=submit] {
@@ -58,6 +62,7 @@ div {
 <div align = "center">
 <div>
 <img src = "../images/logo3.png">
+    <div class = "space"></div>
     <input type="text" id="fname" placeholder = "First Name" name="fname">
     <input type="text" id="lname" placeholder = "Last Name" name="lname">
     <input type="text" id="dob" placeholder = "Date Of Birth" name="dob">
@@ -67,8 +72,10 @@ div {
     <input type="text" id="optional" placeholder="Optional"name="opt">
     <input type="text" id="zipcode" placeholder="Zipcode" name = "zip">
 
+    <div class = "secondspace"></div>
     <button class = "button" text-align: "center" type="submit" value="Create Account"> Create Account </button>
     
+    <div class = "grayspace"></div>
   </form>
   </div>
 </div>
