@@ -84,24 +84,19 @@ class Database:
       query = "INSERT INTO Users VALUES (NULL, %s, %s, %s, %s, NULL, NULL, NULL);"
       self.cur.execute(query, (email, fname, lname, password,))
       self.cur.execute("COMMIT;")
-      #print query % (email, fname, lname, password)
       
 
-   # def NewRequest(self, riderEmail, driverEmail, fromAddress, toAddress):
-   #    # riderId and driverId are ints?
-   #    query = "SELECT id FROM Users WHERE email = %s;"
-   #    self.cur.execute(query, (riderEmail,))
-   #    riderId = self.cur.fetchall()[0][0]
-   #    print riderId
-   #    self.cur.execute(query, (driverEmail,))
-   #    driverId = self.cur.fetchall()[0][0]
-   #    print driverId
-   #    self.cur.execute("START TRANSACTION;")
-   #    query = "INSERT INTO RideRequests VALUES (NULL, %s, %s, NOW(), %s, %s, 1000, 'y');"
-   #    print query % (riderId, driverId, fromAddress, toAddress,)
-   #    self.cur.execute(query, (riderId, driverId, fromAddress, toAddress,))
-   #    self.cur.execute("COMMIT;")
+   def NewRequest(self, riderEmail, driverEmail, fromAddress, toAddress):
+      query = "SELECT id FROM Users WHERE email = %s;"
+      self.cur.execute(query, (riderEmail,))
+      riderId = self.cur.fetchall()[0][0]
+      self.cur.execute(query, (driverEmail,))
+      driverId = self.cur.fetchall()[0][0]
+      self.cur.execute("START TRANSACTION;")
+      query = "INSERT INTO RideRequests VALUES (NULL, %s, %s, NOW(), %s, %s, 1000, 'y');"
+      self.cur.execute(query, (riderId, driverId, fromAddress, toAddress,))
+      self.cur.execute("COMMIT;")
 
-   # def UpdatePrice(self, newPrice, requestNum):
-   #    query = "UPDATE RideRequests SET price = %s WHERE rideId = %s;"
-   #    self.cur.execute(query, (newPrice, requestNum,))
+   def UpdatePrice(self, newPrice, requestNum):
+      query = "UPDATE RideRequests SET price = %s WHERE rideId = %s;"
+      self.cur.execute(query, (newPrice, requestNum,))
