@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <style>
+
+.space { padding: 10px; }
+.greyspace { margin-top: 0px;}
+
 input[type=text], select {
     width: 100%;
     padding: 12px 20px;
@@ -31,6 +35,8 @@ input[type=submit]:hover {
 }
 
 div {
+    min-height: 310px;
+    min-width: 452px;
     background-color: #f2f2f2;
     padding: 10px;
 }
@@ -39,14 +45,16 @@ div {
 
 <div align = "center" overflow="hidden">
 <div>
-<img src = "../images/logo3.png" style= "height: "50px; width: 50px">
-
-    <input type="text" id="name" placeholder = "Username" name="username">
-    <input type="text" id="password" placeholder = "Password" name="password">
-
-    <input type="submit" value="Login">
-    <a href=""> Create Account? </a> 
+<img src = "../images/logo3.png" max-height: "100px"; style= "height: "50px; width: 50px">
+    <input type="text" id="name" placeholder = "Username" name="username"> </br> </br>
+    <input type="text" id="password" placeholder = "Password" name="password"> </br> </br>
+    <p> 
+<div class = "space"></div>
+    <input type="submit" value="Login" > </br>
+    <a href=""> Create Account? </a> </br>
+   </p> 
   </div>
+<div class = "space"></div>
 </div>
 
 </body>
