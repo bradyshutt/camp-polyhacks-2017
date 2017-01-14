@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-login',
   template: `
     <p>
-      login Works!
+      login here!
     </p>
   `,
   styles: []
