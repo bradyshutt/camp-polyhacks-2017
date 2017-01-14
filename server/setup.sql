@@ -2,8 +2,10 @@ DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS RideRequests;
 
 CREATE TABLE Users (
-   id INTEGER PRIMARY KEY,
+   id INTEGER AUTO_INCREMENT PRIMARY KEY,
    email VARCHAR(32),
+   fname VARCHAR(32),
+   lname VARCHAR(32),
    password VARCHAR(32),
    token VARCHAR(64),
    picture VARCHAR(32),
