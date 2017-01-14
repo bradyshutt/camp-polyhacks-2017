@@ -12,6 +12,7 @@ import { LoginComponent } from './login.component';
 import { MenuComponent } from './menu.component';
 import { ToDowntownComponent } from './to-downtown.component';
 import { FromDowntownComponent } from './from-downtown.component';
+import { HeaderComponent } from './header.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { FromDowntownComponent } from './from-downtown.component';
     MenuComponent,
     ToDowntownComponent,
     FromDowntownComponent,
+    HeaderComponent,
   ],
   providers: [],
   bootstrap: [ AppComponent ]
