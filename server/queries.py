@@ -29,3 +29,11 @@ class Database:
          'role': res[0][7]
          }
       return jsonify(resDict)
+
+   def Authentication(self, email, password):
+      query = "SELECT * FROM Users WHERE email = %s AND password = %s"
+      self.cur.execute(query, (email, password,))
+      res = self.cur.fetchall()
+      if len(res) == 0:
+         return False
+      return True
