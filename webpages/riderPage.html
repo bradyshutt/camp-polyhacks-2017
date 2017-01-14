@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+.dropbtn {
+    background-color: #39B7CD;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #226d7b;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+ .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    margin: 4px 2px;
+  }
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.display {display:block;}
+
+div {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+</style>
+</head>
+<body>
+ <script>
+ 
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("display");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+  </script>
+  <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#history">Travel History</a>
+      <a href="#discount">Discounts</a>
+      <a href="#acctinfo">Account Info</a>
+      <a href="#settings">Settings</a>
+      <a href="#logout">Log Out</a>
+    </div>
+  </div>
+
+
+  <div align= "center">
+  <h2>RideRight</h2>
+  <div>
+    <button class = "button"> To Downtown </button>
+    <br/>
+    <button class = "button"> From Downtown </button>
+
+</body>
+</html>
