@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-menu',
   template: `
     <p>
-      menu Works!
+      menuuuuu!
     </p>
   `,
   styles: []
