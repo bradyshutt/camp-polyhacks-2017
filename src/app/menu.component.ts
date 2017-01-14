@@ -29,17 +29,21 @@ import { Component, OnInit } from '@angular/core';
     }
 
     ul {
+        margin-left: 0;
+        padding-left: 0;
         list-style-type: none;
         background-color: red;
     }
     
     li {
         width: 100%; 
-    
+        padding: 10px 20px;
+        border-bottom: 1px solid black;
     }
     
     a {
         color: #333;
+        text-decoration: none;
     }
     
     `]

@@ -7,3 +7,8 @@ html, body {
     height: 100%;
 }
 
+* {
+    font-family: PT Sans Narrow, Helvetica;
+    font-weight: 900;
+}
+
