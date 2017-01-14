@@ -16,6 +16,8 @@ class Database:
       query = "SELECT * FROM Users WHERE email = %s;"
       self.cur.execute(query, (email,))
       res = self.cur.fetchall()
+      if len(res) == 0:
+         return jsonify({'code':404,'message':'Username not found'})
       resDict = {
          'id': res[0][0], 
          'email': res[0][1],
@@ -26,13 +28,4 @@ class Database:
          'picture': res[0][6],
          'role': res[0][7]
          }
-      #return resDict
       return jsonify(resDict)
-
-   # def RideRequestsFromEmail(self, email):
-      # query = "SELECT * FROM Users JOIN RideRequests ON Users.id = RideRequests.riderId WHERE email = %s;"
-      # self.cur.execute(query, (email,))
-      # res = self.cur.fetchall()
-      # resDict = {
-      #    ''
-      # }
