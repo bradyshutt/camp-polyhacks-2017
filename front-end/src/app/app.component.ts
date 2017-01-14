@@ -3,31 +3,36 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <header> ---------------header--------------- </header>
+    <md-sidenav-container>
     
-<md-sidenav-container class="example-container">
-  <md-sidenav #sidenav class="example-sidenav">
-    Jolly good!
-  </md-sidenav>
+      <md-sidenav #sidenav>
+        <app-menu></app-menu>
+      </md-sidenav>
 
-  <div class="example-sidenav-content">
-    <button md-button (click)="sidenav.open()">
-          <md-icon>dehaze</md-icon>
+      <main>
+        <app-header (sidenavChange)="sidenav.open()" ></app-header>
+        
+        
+      </main>
 
-    </button>
-  </div>
-
-</md-sidenav-container>
-    
-    <h1> {{title}} </h1>
+    </md-sidenav-container>
   `,
   styles: [`
-        header {
-            background-color: orange;
+        
+        main {
+            background-color: green;
+            height: 100%;
+        }
+        md-sidenav-container {
+            height: 100%;
         }
     
     `]
 })
 export class AppComponent {
-  title = 'app works!';
+
+  um() {
+    console.log('um');
+  }
+
 }
