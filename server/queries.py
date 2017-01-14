@@ -16,12 +16,13 @@ class Database:
       query = "SELECT * FROM Users WHERE email = %s;"
       self.cur.execute(query, (email,))
       res = self.cur.fetchall()
-      resDict = {
-         'id': res[0], 
-         'email': res[1], 
-         'password': res[2],
-         'token': res[3],
-         'picture': res[4],
-         'role': res[5]
-         }
-      return jsonify(resDict)
+      print res
+      # resDict = {
+      #    'id': res[0], 
+      #    'email': res[1], 
+      #    'password': res[2],
+      #    'token': res[3],
+      #    'picture': res[4],
+      #    'role': res[5]
+      #    }
+      # return jsonify(resDict)
