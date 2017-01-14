@@ -16,6 +16,8 @@ class Database:
       query = "SELECT * FROM Users WHERE email = %s;"
       self.cur.execute(query, (email,))
       res = self.cur.fetchall()
+      if len(res) == 0:
+         return jsonify({'code':404,'message':'Username not found'})
       resDict = {
          'id': res[0][0], 
          'email': res[0][1],
@@ -26,13 +28,71 @@ class Database:
          'picture': res[0][6],
          'role': res[0][7]
          }
+      return jsonify(resDict)
+
+   def Authentication(self, email, password):
+      query = "SELECT * FROM Users WHERE email = %s AND password = %s"
+      self.cur.execute(query, (email, password,))
+      res = self.cur.fetchall()
+      if len(res) == 0:
+         return False
+      return True
       #return resDict
       return jsonify(resDict)
 
-   # def RideRequestsFromEmail(self, email):
-      # query = "SELECT * FROM Users JOIN RideRequests ON Users.id = RideRequests.riderId WHERE email = %s;"
-      # self.cur.execute(query, (email,))
-      # res = self.cur.fetchall()
-      # resDict = {
-      #    ''
-      # }
+   def RideRequestsFromEmail(self, email):
+      query = """SELECT 
+              Riders.fName, 
+              Riders.lName, 
+              RD.fName,
+              RD.lName,
+              requestTime,
+              fromAddress,
+              toAddress,
+              price,
+              complete
+               FROM Users Riders JOIN 
+                (SELECT * 
+                   FROM Users Drivers JOIN 
+                      RideRequests R 
+                      ON R.driverId = Drivers.id) RD 
+                   ON Riders.id = RD.riderId WHERE Riders.email = %s;"""
+      self.cur.execute(query, (email,))
+      res = self.cur.fetchall()
+      resDict = {
+         'riderfName': res[0][0],
+         'riderlName': res[0][1],
+         'driverfName': res[0][2],
+         'driverlName': res[0][3],
+         'requestTime': res[0][4],
+         'fromAddress': res[0][5],
+         'toAddress': res[0][6],
+         'price': res[0][7],
+         'completed': res[0][8]
+      }
+      return jsonify(resDict)
+
+   def NewUser(self, email, password, fname, lname):
+      query = "SELECT * FROM Users WHERE email = %s"
+      self.cur.execute(query, (email,))
+      res = self.cur.fetchall()
+      # User with email already exists
+      if (len(res) != 0):
+         return jsonify({'code':404,'message':'Username not found'})
+      # User does not yet exist
+      query = "INSERT INTO Users VALUES (NULL, %s, %s, %s, %s);"
+      self.cur.execute(query, (email, fname, lname, password,))
+
+   def NewRequest(self, riderEmail, driverEmail, fromAddress, toAddress):
+      # riderId and driverId are ints?
+      riderQuery = "SELECT id FROM Users WHERE email = %s;"
+      self.cur.execute(query, (riderEmail,))
+      riderId = self.cur.fetchall()[0][0]
+      self.cur.execute(query, (driverEmail,))
+      driverId = self.cur.fetchall()[0][0]
+      query = "INSERT INTO RideRequests VALUES (NULL, %s, %s, NOW(), %s, %s, %s);"
+      self.cur.execute(query, (riderId, driverId, fromAddress, toAddress,))
+
+   def UpdatePrice(self, newPrice, requestNum):
+      query = "UPDATE RideRequests SET price = %s WHERE rideId = %s;"
+      self.cur.execute(query, (newPrice, requestNum,))

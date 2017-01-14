@@ -11,6 +11,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
+    max-height: 50px;
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -57,11 +58,6 @@
 
 .display {display:block;}
 
-div {
-    background-color: #f2f2f2;
-    padding: 10px;
-}
-
 </style>
 </head>
 <body>
@@ -89,21 +85,14 @@ div {
   <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn"><img src="../images/threelines.png" height="150%" width="150%" </button>
     <div id="myDropdown" class="dropdown-content">
-      <a href="#history">Travel History</a>
+      <a href="#history">History</a>
       <a href="#discount">Discounts</a>
-      <a href="#acctinfo">Account Info</a>
+      <a href="#acctinfo">Profile</a>
       <a href="#settings">Settings</a>
       <a href="#logout">Log Out</a>
     </div>
   </div>
   <div align= "center">
-  <h2>RideRight</h2>
-  <div>
-    <button class = "button"> To Downtown </button>
-    <br/>
-    <button class = "button"> From Downtown </button>
-
-  </div>
  </div>
 </body>
 </html>

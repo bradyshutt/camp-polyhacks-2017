@@ -4,24 +4,43 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-menu',
   template: `
       <nav>
-        <ul>
-          <li><a href="#history">Travel History</a></li>
-          <li><a href="#discount">Discounts</a></li>
-          <li><a href="#acctinfo">Account Info</a></li>
-          <li><a href="#settings">Settings</a></li>
-          <li><a href="#logout">Log Out</a></li>
-        </ul>
+        <div class="nav-top">
+          
+        
+        </div>
+        <div class="nav-bottom">
+          <ul>
+            <li><a href="#history">Travel History</a></li>
+            <li><a href="#discount">Discounts</a></li>
+            <li><a href="#acctinfo">Account Info</a></li>
+            <li><a href="#settings">Settings</a></li>
+            <li><a href="#logout">Log Out</a></li>
+          </ul>
+        </div>
       </nav>
   `,
   styles: [`
+    .nav-bottom {
+        background-color: pink;
+    }
+    .nav-bottom {
+        background-color: cyan;
+        height: 100%;
+    }
 
-        ul {
-            list-style-type: none;
-        }
-        
-        li a, li a:hover, li a:visited {
-            color: #333;
-        }
+    ul {
+        list-style-type: none;
+        background-color: red;
+    }
+    
+    li {
+        width: 100%; 
+    
+    }
+    
+    a {
+        color: #333;
+    }
     
     `]
 })
