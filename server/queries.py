@@ -97,6 +97,7 @@ class Database:
       query = "INSERT INTO RideRequests VALUES (NULL, %s, %s, NOW(), %s, %s, 1000, 'y');"
       self.cur.execute(query, (riderId, driverId, fromAddress, toAddress,))
       self.cur.execute("COMMIT;")
+      return "Success"
 
    # def UpdatePrice(self, newPrice, requestNum):
    #    query = "UPDATE RideRequests SET price = %s WHERE rideId = %s;"
