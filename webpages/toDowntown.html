@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html>
 <style>
-<<<<<<< HEAD
-  .size{
-     height: 30px;
-     width: 400px;
-  }
-  .round-button{
-     border-radius: 15px;
-     background: #E04C5B;
-     width: 400px;
-     height: 30px;
-  }
-=======
 
-.space { padding: 20px; }
+.space { padding: 150px; }
 
 .regimg {
+  opacity: 0.7;
+  position: relative;
   width: 20%;
   height: 20%;
 }
@@ -25,12 +15,18 @@
   width: 50%; 
   height: 50%;
 }
-
+.header {
+  position: absolute;
+  width: 55%;
+  height: 22%;
+}
 
 body {
-  height: 820px;
-  width: 970px;
+  height: 870px;
+  width: 900px;
   position: absolute;
+  background-color: #f2f2f2;
+  padding: 10px;
 }
 
 input[type=text], select {
@@ -64,22 +60,16 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #a9a9a9;
 }
-
-div {
-    min-height: 500px;
-    min-width: 700px;
-    background-color: #f2f2f2;
-    padding: 10px;
-}
->>>>>>> fedd5e7212b73166fbef88c1649537fba23a9213
 </style>
 <body>
 <div>
 
 <div align = "center" overflow="hidden">
 <div>
-<img class = "regimg" src = "../images/app.png" style = "float: right"; max-height: "100px"; style= "height: "50px; width: 50px">
+<img class = "header" src = "../images/todt.png" style = "float:right";>
+<div class = "space"> </div>
  <input type="text" id="pickupLoc" placeholder = "Current Location: ">  </br> </br>
+   
    <img class = "mapimg" src = "../images/map.png">
     <input type="text" id="destination" placeholder = "Enter Destination" name="destination"> </br> </br>
     <p>
