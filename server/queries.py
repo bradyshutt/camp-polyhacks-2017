@@ -37,7 +37,6 @@ class Database:
       if len(res) == 0:
          return False
       return True
-      #return resDict
       return jsonify(resDict)
 
    def RideRequestsFromEmail(self, email):
@@ -50,7 +49,7 @@ class Database:
               fromAddress,
               toAddress,
               price,
-              complete
+              completed
                FROM Users Riders JOIN 
                 (SELECT * 
                    FROM Users Drivers JOIN 
@@ -59,6 +58,8 @@ class Database:
                    ON Riders.id = RD.riderId WHERE Riders.email = %s;"""
       self.cur.execute(query, (email,))
       res = self.cur.fetchall()
+      if len(res) == 0:
+         return jsonify({'code':404,'message':'No requests found'})
       resDict = {
          'riderfName': res[0][0],
          'riderlName': res[0][1],
@@ -71,3 +72,36 @@ class Database:
          'completed': res[0][8]
       }
       return jsonify(resDict)
+
+   def NewUser(self, email, password, fname, lname):
+      query = "SELECT * FROM Users WHERE email = %s"
+      self.cur.execute(query, (email,))
+      res = self.cur.fetchall()
+      # User with email already exists
+      if (len(res) != 0):
+         return jsonify({'code':404,'message':'Username not found'})
+      # User does not yet exist
+      self.cur.execute("START TRANSACTION;")
+      query = "INSERT INTO Users VALUES (NULL, %s, %s, %s, %s, NULL, NULL, NULL);"
+      self.cur.execute(query, (email, fname, lname, password,))
+      self.cur.execute("COMMIT;")
+      return "Success"
+
+   def NewRequest(self, riderEmail, driverEmail, fromAddress, toAddress):
+      query = "SELECT id FROM Users WHERE email = %s;"
+      self.cur.execute(query, (riderEmail,))
+      riderId = self.cur.fetchall()[0][0]
+      self.cur.execute(query, (driverEmail,))
+      driverId = self.cur.fetchall()[0][0]
+      self.cur.execute("START TRANSACTION;")
+      query = "INSERT INTO RideRequests VALUES (NULL, %s, %s, NOW(), %s, %s, 1000, 'y');"
+      self.cur.execute(query, (riderId, driverId, fromAddress, toAddress,))
+      self.cur.execute("COMMIT;")
+      return "Success"
+
+   def UpdatePrice(self, newPrice, requestNum):
+      self.cur.execute("START TRANSACTION;")
+      query = "UPDATE RideRequests SET price = %s WHERE rideId = %s;"
+      self.cur.execute(query, (newPrice, requestNum,))
+      self.cur.execute("COMMIT;")
+      return "Success"
