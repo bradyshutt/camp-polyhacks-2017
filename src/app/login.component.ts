@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
       <div>
         <input type="text" id="name" placeholder = "Username" name="username">
-        <input type="text" id="password" placeholder = "Password" name="password">
+        <input type="password" id="password" placeholder = "Password" name="password">
 
         <a routerLink="/new-ride"><input type="submit" value="Login"></a>
         
