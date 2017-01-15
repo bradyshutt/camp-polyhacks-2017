@@ -35,9 +35,25 @@ class Database:
       self.cur.execute(query, (email, password,))
       res = self.cur.fetchall()
       if len(res) == 0:
-         return False
-      return True
-      return jsonify(resDict)
+         return str({'code':404,'message':'Incorrect credentials'})
+
+      query = "SELECT * FROM Users WHERE email = %s;"
+      self.cur.execute(query, (email,))
+      res = self.cur.fetchall()
+      print "res: " + str(res)
+      resDict = {
+         'id': res[0][0], 
+         'email': res[0][1],
+         'fname': res[0][2], 
+         'lname': res[0][3],
+         'password': res[0][4],
+         'token': res[0][5],
+         'picture': res[0][6],
+         'role': res[0][7]
+         }
+      print "json code: " + str(resDict)
+      # jsonifying the result breaks it for some reason
+      return str(resDict)
 
    def RideRequestsFromEmail(self, email):
       query = """SELECT 
