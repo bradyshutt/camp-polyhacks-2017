@@ -79,7 +79,7 @@ class Database:
       res = self.cur.fetchall()
       # User with email already exists
       if (len(res) != 0):
-         return jsonify({'code':404,'message':'Username not found'})
+         return jsonify({'code':404,'message':'User already exists'})
       # User does not yet exist
       self.cur.execute("START TRANSACTION;")
       query = "INSERT INTO Users VALUES (NULL, %s, %s, %s, %s, NULL, NULL, %s);"
