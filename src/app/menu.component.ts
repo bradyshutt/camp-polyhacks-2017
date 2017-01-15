@@ -20,7 +20,7 @@ import { Component, OnInit } from '@angular/core';
       </nav>
   `,
   styles: [`
-    .nav-bottom {
+    .nav-top {
         background-color: pink;
     }
     .nav-bottom {

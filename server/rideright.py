@@ -30,7 +30,8 @@ def newuser():
    password = request.args.get('password')
    fname = request.args.get('fname')
    lname = request.args.get('lname')
-   return db.NewUser(email, password, fname, lname)
+   role = request.args.get('role')
+   return db.NewUser(email, password, fname, lname, role)
 
 @app.route("/newrequest", methods=['GET'])
 def newrequest():
