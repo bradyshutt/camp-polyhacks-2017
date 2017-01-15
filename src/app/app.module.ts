@@ -24,7 +24,6 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'new-ride', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'new-ride', component: NewRideComponent },
-  { path: 'new-ride', component: NewRideComponent },
   { path: 'from-downtown', component: FromDowntownComponent },
   { path: 'to-downtown', component: ToDowntownComponent },
 ];

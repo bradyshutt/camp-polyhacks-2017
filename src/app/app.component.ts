@@ -30,8 +30,9 @@ import { Component } from '@angular/core';
             overflow: hidden;
             height: 90%;
         }
-        md-sidenav-container {
+        md-sidenav-container, app-menu {
             height: 100%;
+            display: block;
         }
         md-sidenav {
             width: 80%;

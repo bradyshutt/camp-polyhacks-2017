@@ -43,7 +43,6 @@ import { Component, OnInit } from '@angular/core';
     }
 
     div {
-        background-color: #f2f2f2;
         padding: 10px;
     }
 

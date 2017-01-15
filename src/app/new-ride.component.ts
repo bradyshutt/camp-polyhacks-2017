@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
     <div class="wrapper main-bg-color">
       <img src="../assets/logofinal.png" alt="to-downtown" class="main-logo">
       <div class="destination-buttons">
-        <img src="../assets/todt.png" alt="to-downtown" class="to-downtown-button">
-        <img src="../assets/fromdt.png" alt="from-downtown" class="from-downtown-button">
+          <a routerLink="/to-downtown"><img src="../assets/todt.png" alt="to-downtown" class="to-downtown-button"></a>
+          <a routerLink="/from-downtown"><img src="../assets/fromdt.png" alt="from-downtown" class="from-downtown-button"></a>
       </div>
     </div>
   `,
