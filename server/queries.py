@@ -73,7 +73,7 @@ class Database:
       }
       return jsonify(resDict)
 
-   def NewUser(self, email, password, fname, lname):
+   def NewUser(self, email, password, fname, lname, role):
       query = "SELECT * FROM Users WHERE email = %s"
       self.cur.execute(query, (email,))
       res = self.cur.fetchall()
@@ -82,8 +82,8 @@ class Database:
          return jsonify({'code':404,'message':'Username not found'})
       # User does not yet exist
       self.cur.execute("START TRANSACTION;")
-      query = "INSERT INTO Users VALUES (NULL, %s, %s, %s, %s, NULL, NULL, NULL);"
-      self.cur.execute(query, (email, fname, lname, password,))
+      query = "INSERT INTO Users VALUES (NULL, %s, %s, %s, %s, NULL, NULL, %s);"
+      self.cur.execute(query, (email, fname, lname, password, role,))
       self.cur.execute("COMMIT;")
       return "Success"
 
