@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
       <input type="text" id="destination" placeholder = "Enter Destination" name="destination">
       <p> 
         <input type="submit" value="Submit Request" > <br>
-          <button class="back" value="Go Back" >Go Back</button> <br>
+        <a routerLink="/new-ride"><button class="back" value="Go Back" >Go Back</button></a> <br>
       </p> 
 
   </div>
@@ -75,6 +75,16 @@ input[type=submit] {
 }
 input[type=submit]:hover {
     background-color: #a9a9a9;
+}
+.back {
+    background-color: deepskyblue;
+    width: 100%;
+    color: white;
+    padding: 14px 20px 10px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
     `]

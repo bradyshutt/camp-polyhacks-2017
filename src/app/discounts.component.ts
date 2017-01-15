@@ -10,10 +10,8 @@ import { Component, OnInit } from '@angular/core';
     </div>
   `,
   styles: [`
-
     img {
         width: 100%;
-    
     }
     `]
 })

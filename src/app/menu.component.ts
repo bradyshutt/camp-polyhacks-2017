@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
         <div class="nav-bottom">
           <ul>
+            <li><a routerLink="/new-ride" routerLinkActive="active">Request a Ride</a></li>
             <li><a routerLink="/history" routerLinkActive="active">Travel History</a></li>
             <li><a routerLink="/discounts" routerLinkActive="active">Discounts</a></li>
             <li><a routerLink="/account-info" routerLinkActive="active">Account Information</a></li>

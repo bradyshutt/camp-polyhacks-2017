@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
         <p>
           <input type="text" placeholder="Number of People" name="numOfPeople"/>
           <input type="submit" value="Submit Request" > <br>
-          <button class="back" value="Go Back" >Go Back</button> <br>
+          <a routerLink="/new-ride"><button class="back" value="Go Back" >Go Back</button></a> <br>
         </p> 
       </div> 
   </div>

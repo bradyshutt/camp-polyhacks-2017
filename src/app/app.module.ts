@@ -22,7 +22,7 @@ import { ProfileComponent } from './profile.component';
 import { DiscountsComponent } from './discounts.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'new-ride', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'new-ride', component: NewRideComponent },
   { path: 'discounts', component: DiscountsComponent },
