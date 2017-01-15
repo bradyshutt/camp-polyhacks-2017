@@ -47,6 +47,7 @@ import { Component, OnInit } from '@angular/core';
         width: 100%; 
         padding: 10px 20px;
         border-bottom: 1px solid black;
+        font-size: 2em;
     }
     a {
         color: #333;
