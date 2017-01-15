@@ -17,10 +17,18 @@ import { Component } from '@angular/core';
     </md-sidenav-container>
   `,
   styles: [`
+
+        app-header {
+            height: 10%;
+            display: block;
+        }
         
         main {
-            background-color: #f2f2f2;
-            height: 100%;
+            background-color: #F7F7F7;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+            overflow: hidden;
+            height: 90%;
         }
         md-sidenav-container {
             height: 100%;
