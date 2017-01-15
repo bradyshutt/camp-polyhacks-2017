@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
             <li><a routerLink="/discounts" routerLinkActive="active">Discounts</a></li>
             <li><a routerLink="/account-info" routerLinkActive="active">Account Information</a></li>
             <li><a routerLink="/settings" routerLinkActive="active">Settings</a></li>
-            <li><a routerLink="/logout" routerLinkActive="active">Logout</a></li>
+            <li><a routerLink="/login" routerLinkActive="active">Logout</a></li>
           </ul>
         </div>
       </nav>

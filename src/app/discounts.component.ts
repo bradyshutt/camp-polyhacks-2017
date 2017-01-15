@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <div>
       <img src="../assets/discountsheader.png" alt="">
       <img src="../assets/discounttab.png" alt="">
+      <img src="../assets/favs.png" alt="">
       <img src="../assets/deallist.png" alt="">
     </div>
   `,
