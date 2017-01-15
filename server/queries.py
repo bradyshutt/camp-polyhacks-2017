@@ -35,7 +35,7 @@ class Database:
       self.cur.execute(query, (email, password,))
       res = self.cur.fetchall()
       if len(res) == 0:
-         return False
+         return str({'code':404,'message':'Incorrect credentials'})
 
       query = "SELECT * FROM Users WHERE email = %s;"
       self.cur.execute(query, (email,))
