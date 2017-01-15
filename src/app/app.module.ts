@@ -19,11 +19,13 @@ import { FromDowntownComponent } from './from-downtown.component';
 import { HeaderComponent } from './header.component';
 import { NewRideComponent } from './new-ride.component';
 import { ProfileComponent } from './profile.component';
+import { DiscountsComponent } from './discounts.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'new-ride', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'new-ride', component: NewRideComponent },
+  { path: 'discounts', component: DiscountsComponent },
   { path: 'from-downtown', component: FromDowntownComponent },
   { path: 'to-downtown', component: ToDowntownComponent },
 ];
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     NewRideComponent,
     ProfileComponent,
+    DiscountsComponent,
   ],
   providers: [],
   bootstrap: [ AppComponent ]
