@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-login',
   template: `
     <div align = "center">
-      <h2>RideRight</h2>
+      <img src="../assets/logofinal.png" alt="to-downtown" class="main-logo">
 
       <div>
         <input type="text" id="name" placeholder = "Username" name="username">
@@ -17,6 +17,13 @@ import { Component, OnInit } from '@angular/core';
     </div>
   `,
   styles: [`
+        .main-logo {
+            padding: 0 10px;
+            margin: 0 auto;
+            display: block;
+            width: 80%;
+            box-sizing: border-box;
+        }
 
     input[type=text], select {
         width: 100%;
