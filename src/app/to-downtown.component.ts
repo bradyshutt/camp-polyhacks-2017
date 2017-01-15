@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
         <img class="header-img" src = "../assets/todt.png" style="float:right;">
         <input type="text" id="pickupLoc" placeholder="Current Location: ">  
         <img class="mapimg" src="../assets/map2.png">
-        <input type="text" id="destination" placeholder="Enter Destination" name="destination"> 
         <p>
           <input type="text" placeholder="Number of People" name="numOfPeople"/>
           <input type="submit" value="Submit Request" > <br>
