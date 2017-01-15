@@ -99,6 +99,9 @@ class Database:
       self.cur.execute("COMMIT;")
       return "Success"
 
-   # def UpdatePrice(self, newPrice, requestNum):
-   #    query = "UPDATE RideRequests SET price = %s WHERE rideId = %s;"
-   #    self.cur.execute(query, (newPrice, requestNum,))
+   def UpdatePrice(self, newPrice, requestNum):
+      self.cur.execute("START TRANSACTION;")
+      query = "UPDATE RideRequests SET price = %s WHERE rideId = %s;"
+      self.cur.execute(query, (newPrice, requestNum,))
+      self.cur.execute("COMMIT;")
+      return "Success"
