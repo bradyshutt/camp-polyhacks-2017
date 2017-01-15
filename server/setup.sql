@@ -13,12 +13,12 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE RideRequests (
+   rideId INTEGER AUTO_INCREMENT PRIMARY KEY
    riderId INTEGER NOT NULL,
    driverId INTEGER NOT NULL,
    requestTime DATETIME NOT NULL,
    fromAddress VARCHAR(64) DEFAULT NULL,
    toAddress VARCHAR(64) DEFAULT NULL,
    price INTEGER DEFAULT 1000,              -- in cents
-   completed CHAR(1) DEFAULT 'n',          -- 'y' or 'n'
-   PRIMARY KEY(riderId, driverId)
+   completed CHAR(1) DEFAULT 'n'          -- 'y' or 'n'
 );
