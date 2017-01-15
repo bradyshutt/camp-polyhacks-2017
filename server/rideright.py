@@ -3,7 +3,7 @@
 # Ashley Newman
 # January 14, 2017
 
-from flask import Flask, request, url_for
+from flask import Flask, request, render_template
 from queries import *
 
 db = Database()
@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def index():
-   return "RideRight API"
+   return render_template("apiInfo.html")
 
 @app.route("/user/<email>", methods=['GET'])
 def user(email):
@@ -30,15 +30,16 @@ def newuser():
    password = request.args.get('password')
    fname = request.args.get('fname')
    lname = request.args.get('lname')
-   return db.NewUser(email, password, fname, lname)
+   role = request.args.get('role')
+   return db.NewUser(email, password, fname, lname, role)
 
-# @app.route("/newrequest", methods=['POST'])
-# def newrequest():
-#    riderId = request.json['riderId']
-#    driverId = request.json['driverId']
-#    fromAddress = request.json['fromAddress']
-#    toAddress = request.json['toAddress']
-#    return db.NewRequest(riderId, driverId, fromAddress, toAddress)
+@app.route("/newrequest", methods=['GET'])
+def newrequest():
+   riderId = request.args.get('riderId')
+   driverId = request.args.get('driverId')
+   fromAddress = request.args.get('fromAddress')
+   toAddress = request.args.get('toAddress')
+   return db.NewRequest(riderId, driverId, fromAddress, toAddress)
 
 @app.route("/authentication", methods=['GET'])
 def authentication():
